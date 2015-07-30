@@ -1,4 +1,4 @@
-FROM       ubuntu-debootstrap:14.04
+FROM       resin/rpi-raspbian
 MAINTAINER Luis Lavena <luislavena@gmail.com>
 
 RUN \
