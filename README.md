@@ -4,7 +4,7 @@ This is a minimal, busybox-like [Alpine Linux](http://alpinelinux.org/) containe
 
 It contains a bare minimum of packages required for building containers:
 
-- [apk](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
+- `[apk](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)`
 - `curl`
 - `wget`
 - `ca-certificates`
@@ -22,7 +22,7 @@ Removed the additional install script (for feature parity with other images) and
 Use this as base for your own containers:
 
 ```dockerfile
-FROM rcarmo/alpine-arm
+FROM rcarmo/alpine:3.4-armhf
 RUN apk-install <packagename>
 
 CMD ["/bin/sh"]
