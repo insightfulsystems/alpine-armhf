@@ -4,14 +4,14 @@ This is a minimal, busybox-like [Alpine Linux](http://alpinelinux.org/) containe
 
 It contains a bare minimum of packages required for building containers:
 
-- `[apk](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)`
+- `apk`
 - `curl`
 - `wget`
 - `ca-certificates`
 
 ## Credits
 
-This is a fork of `[luxas/alpine-arm](https://github.com/luxas/alpine-arm)`, which was in turn possible thanks to work by `[uggedal](https://github.com/uggedal)` on packaging [Alpine Linux for Docker](https://github.com/uggedal/docker-alpine).
+This is a fork of [`luxas/alpine-arm`](https://github.com/luxas/alpine-arm), which was in turn possible thanks to work by [`uggedal`](https://github.com/uggedal) on packaging [Alpine Linux for Docker](https://github.com/uggedal/docker-alpine).
 
 ## Changes
 
