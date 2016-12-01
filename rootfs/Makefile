@@ -1,4 +1,4 @@
-release ?= edge
+release ?= v3.4
 
 build:
 	docker build -t base-rootfs .
