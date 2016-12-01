@@ -1,12 +1,8 @@
 FROM       scratch
-MAINTAINER Luis Lavena <luislavena@gmail.com>
+MAINTAINER Rui Carmo https://github.com/rcarmo
 
 ADD ./rootfs.tar.xz /
 
-ADD ./scripts/apk-install /usr/sbin/apk-install
-RUN apk update && apk upgrade
-
-# Base packages useful for other containers
-RUN apk-install ca-certificates curl wget
+RUN apk update && apk upgrade && apk add ca-certificates curl wget && rm -rf /var/cache/apk/*
 
 CMD ["/bin/sh"]
