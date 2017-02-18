@@ -1,4 +1,4 @@
-# alpine-arm
+# docker-alpine-armhf
 
 This is a minimal, busybox-like [Alpine Linux](http://alpinelinux.org/) container, 
 
@@ -15,14 +15,15 @@ This is a fork of [`luxas/alpine-arm`](https://github.com/luxas/alpine-arm), whi
 
 ## Changes
 
-Removed the additional install script (for feature parity with other images) and simplified the `Dockerfile` somewhat.
+* Removed the additional install script (for feature parity with other images) and simplified the `Dockerfile` somewhat.
+* Removed pointless nested build step and bumped version
 
 ## Usage
 
 Use this as base for your own containers:
 
 ```dockerfile
-FROM rcarmo/alpine:3.4-armhf
+FROM rcarmo/alpine:3.5-armhf
 RUN apk-install <packagename>
 
 CMD ["/bin/sh"]
