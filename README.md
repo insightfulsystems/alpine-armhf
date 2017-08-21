@@ -23,7 +23,7 @@ This is a fork of [`luxas/alpine-arm`](https://github.com/luxas/alpine-arm), whi
 Use this as base for your own containers:
 
 ```dockerfile
-FROM rcarmo/alpine:3.5-armhf
+FROM rcarmo/alpine:3.6-armhf
 RUN apk-install <packagename>
 
 CMD ["/bin/sh"]
