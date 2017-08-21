@@ -1,4 +1,4 @@
-export RELEASE?=3.5
+export RELEASE?=3.6
 armhf: Dockerfile rootfs.armhf.tar.xz
 	mv rootfs.armhf.tar.xz rootfs.tar.xz
 	docker build -t rcarmo/alpine:armhf .
