@@ -1,6 +1,6 @@
 export RELEASE?=3.7
 
-.PHONY armhf amd64 rootfs.armhf rootfs.amd64
+.PHONY: armhf amd64 rootfs.armhf rootfs.amd64
 
 rootfs.armhf:
 	ARCH=armhf sh ./mkrootfs.sh -s -r v${RELEASE}
@@ -9,7 +9,6 @@ rootfs.armhf:
 rootfs.amd64:
 	ARCH=x86_64 sh ./mkrootfs.sh -s -r v${RELEASE}
 	mv rootfs.tar.xz rootfs.amd64.tar.xz
-
 
 armhf: Dockerfile rootfs.armhf.tar.xz
 	mv rootfs.armhf.tar.xz rootfs.tar.xz
