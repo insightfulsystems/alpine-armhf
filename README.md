@@ -1,4 +1,4 @@
-# docker-alpine-armhf
+# alpine-armhf
 
 This is a minimal, busybox-like [Alpine Linux](http://alpinelinux.org/) container, 
 
