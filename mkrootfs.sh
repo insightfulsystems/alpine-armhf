@@ -32,6 +32,7 @@ getapk() {
 
 mkbase() {
 	echo "Getting alpine-base"
+    ls -al $TMP/sbin/*
 	$TMP/sbin/apk.static --repository $MAINREPO --update-cache --allow-untrusted \
 		--root $ROOTFS --initdb add alpine-base 
 }
