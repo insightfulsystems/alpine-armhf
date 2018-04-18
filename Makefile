@@ -1,21 +1,29 @@
-export RELEASE?=3.6
-armhf: Dockerfile rootfs.armhf.tar.xz
-	mv rootfs.armhf.tar.xz rootfs.tar.xz
-	docker build -t rcarmo/alpine:armhf .
-	docker tag rcarmo/alpine:armhf rcarmo/alpine:${RELEASE}-armhf
+export RELEASE?=3.7
 
-x86_64: Dockerfile rootfs.x86_64.tar.xz
-	mv rootfs.x86_64.tar.xz rootfs.tar.xz
-	docker build -t rcarmo/alpine:x86_64 .
-	docker tag rcarmo/alpine:x86_64 rcarmo/alpine:${RELEASE}-x86_64
+.PHONY armhf amd64 rootfs.armhf rootfs.amd64
 
-rootfs.armhf.tar.xz:
+rootfs.armhf:
 	ARCH=armhf sh ./mkrootfs.sh -s -r v${RELEASE}
 	mv rootfs.tar.xz rootfs.armhf.tar.xz
 
-rootfs.x86_64.tar.xz:
+rootfs.amd64:
 	ARCH=x86_64 sh ./mkrootfs.sh -s -r v${RELEASE}
-	mv rootfs.tar.xz rootfs.x86_64.tar.xz
+	mv rootfs.tar.xz rootfs.amd64.tar.xz
+
+
+armhf: Dockerfile rootfs.armhf.tar.xz
+	mv rootfs.armhf.tar.xz rootfs.tar.xz
+	docker build -t insightful/alpine:${RELEASE}-armhf .
+
+amd64: Dockerfile rootfs.amd64.tar.xz
+	mv rootfs.amd64.tar.xz rootfs.tar.xz
+	docker build -t insightful/alpine:${RELEASE}-amd64 .
+
+
+manifest:
+	docker manifest create insightful/alpine:${RELEASE}
+	docker manifest annotate insightful/alpine:${RELEASE} insightful/alpine:${RELEASE}-armhf --os linux --arch arm --variant v7
+	docker manifest annotate insightful/alpine:${RELEASE} insightful/alpine:${RELEASE}-amd64 --os linux --arch amd64
 
 push:
-	docker push rcarmo/alpine
+	docker push insightful/alpine
