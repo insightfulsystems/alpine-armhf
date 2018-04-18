@@ -10,9 +10,7 @@ install:
   - docker run --rm --privileged multiarch/qemu-user-static:register --reset # setup QEMU for cross-builds
 
 script:
-  - make rootfs.amd64
   - make amd64
-  - make rootfs.armhf
   - make armhf
   - make manifest
 
