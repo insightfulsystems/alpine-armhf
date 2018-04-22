@@ -3,7 +3,10 @@ export RELEASE?=3.7
 .PHONY: armhf amd64 rootfs.armhf rootfs.amd64
 
 rootfs.armhf:
-	ARCH=armhf sudo -E sh ./mkrootfs.sh -s -r v${RELEASE}
+	docker build -t base-rootfs .
+	docker run --name build-rootfs -it base-rootfs -r v${RELEASE}
+	docker cp build-rootfs:/tmp/rootfs.tar.xz .
+	docker rm build-rootfs
 	mv rootfs.tar.xz armhf/
 
 rootfs.amd64:
