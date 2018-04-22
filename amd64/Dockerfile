@@ -1,7 +1,7 @@
 FROM scratch
 MAINTAINER Rui Carmo https://github.com/rcarmo
 
-ADD ../rootfs.tar.xz /
+ADD ./rootfs.tar.xz /
 
 RUN apk update \
  && apk upgrade \
