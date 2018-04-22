@@ -18,7 +18,9 @@ install:
     popd
 
 script:
+  - make rootfs.amd64
   - make amd64
+  - make rootfs.armhf
   - make armhf
   - make manifest
 

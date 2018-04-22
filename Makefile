@@ -1,12 +1,12 @@
 export RELEASE?=3.7
 
-.PHONY: armhf amd64 
+.PHONY: armhf amd64 rootfs.armhf rootfs.amd64
 
-rootfs.armhf.tar.xz:
+rootfs.armhf:
 	ARCH=armhf sudo -E sh ./mkrootfs.sh -s -r v${RELEASE}
 	mv rootfs.tar.xz armhf/
 
-rootfs.amd64.tar.xz:
+rootfs.amd64:
 	ARCH=x86_64 sudo -E sh ./mkrootfs.sh -s -r v${RELEASE}
 	mv rootfs.tar.xz amd64/
 
