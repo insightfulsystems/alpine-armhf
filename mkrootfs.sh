@@ -84,7 +84,28 @@ MIRROR=${MIRROR:-http://nl.alpinelinux.org/alpine}
 SAVE=${SAVE:-0}
 MAINREPO=$MIRROR/$REL/main
 ADDITIONALREPO=$MIRROR/$REL/community
-ARCH=${ARCH:-$(uname -m)}
+
+case "$(uname -m)" in
+  x86_64*)
+    ARCH=x86_64
+    ;;
+  i?86_64*)
+    ARCH=x86_64
+    ;;
+  amd64*)
+    ARCH=x86_64
+    ;;
+  arm*)
+    ARCH=armhf
+    ;;
+  i?86*)
+    ARCH=x86
+    ;;
+  *)
+    echo "Unsupported host arch. Must be 32-bit, 64-bit or ARM."
+    exit 1
+    ;;
+esac
 
 tmp
 getapk
