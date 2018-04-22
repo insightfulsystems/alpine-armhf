@@ -28,6 +28,7 @@ getapk() {
 	echo "Getting APK"
 	curl -vsSL $MAINREPO/$ARCH/apk-tools-static-$(apkv).apk |
 		tar -xz -C $TMP sbin/apk.static
+	ls -al $TMP/sbin
 }
 
 mkbase() {
