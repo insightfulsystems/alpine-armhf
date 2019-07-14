@@ -1,4 +1,4 @@
-export RELEASE?=3.7
+export RELEASE?=3.9
 
 .PHONY: armhf amd64 rootfs.armhf rootfs.amd64
 
